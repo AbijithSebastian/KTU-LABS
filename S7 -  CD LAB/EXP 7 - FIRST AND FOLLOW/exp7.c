@@ -25,7 +25,7 @@ void findFirst(char res[],char c){
         return;
     }
     for(int i=0;i<n;i++){
-        if(productions[i][0]==c){ //check
+        if(productions[i][0]==c){ 
             int j=3;
             int eflag=1;
             while(productions[i][j] && eflag){
@@ -48,12 +48,12 @@ void findFollow(char res[],char c){
     }
     for(int i=0;i<n;i++){
         for(int j=3;productions[i][j]!='\0';j++){
-            if(productions[i][j]==c){ //check
+            if(productions[i][j]==c){ 
                 int k=j+1;
                 int eflag=1;
                 while(productions[i][k] && eflag){
                     char temp[MAX]="";
-                    findFirst(temp,productions[i][k]);  //check
+                    findFirst(temp,productions[i][k]);  
                     for(int m=0;temp[m]!='\0';m++){
                         if(temp[m]!='#') add(res,temp[m]);
                     }
@@ -65,7 +65,7 @@ void findFollow(char res[],char c){
                     char temp[MAX]="";
                     findFollow(temp,productions[i][0]); 
                     for(int m=0;temp[m]!='\0';m++){
-                        add(res,temp[m]);          //check
+                        add(res,temp[m]);          
                     }
                 }
             }
@@ -105,4 +105,5 @@ void main(){
         }
         printf("}\n");
     }
+
 }
