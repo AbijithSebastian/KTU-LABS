@@ -35,9 +35,9 @@ void main(){
                 sprintf(c[i].op2,"%d",val[j]);
             }
         }
-        if(!isalpha(c[i].op2[0])){     //check
+        if(!isalpha(c[i].op2[0])){    
             int v1=atoi(c[i].op1);
-            int v2=(c[i].op2[0]!='_')?atoi(c[i].op2):0; //check
+            int v2=(c[i].op2[0]!='_')?atoi(c[i].op2):0; 
             int result=0;
             switch(c[i].op){
                 case '+':result=v1+v2; break;
@@ -47,7 +47,7 @@ void main(){
                 case '_':result=v1; break;
                 default: continue; break; 
             }
-            strcpy(var[constcnt],c[i].lhs);  //check
+            strcpy(var[constcnt],c[i].lhs);  
             val[constcnt++]=result;
             sprintf(c[i].op1,"%d",result);
             c[i].op='_';
@@ -63,4 +63,5 @@ void main(){
         }
         printf("\n");
     }
+
 }
