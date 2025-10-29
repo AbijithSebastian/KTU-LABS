@@ -71,7 +71,7 @@ int reduce(){
         if(len<=top+1){
             int flag=1;
             for(int j=0;j<len;j++){
-                if(stack[top-len+1+j]!=productions[i][j+3]){ //check j+3
+                if(stack[top-len+1+j]!=productions[i][j+3]){ 
                     flag=0;
                     break;
                 }
@@ -80,7 +80,7 @@ int reduce(){
                 for(int j=0;j<len;j++){
                     pop();
                 }
-                push(productions[i][0]); //lhs of production E in 'E'->E+T 
+                push(productions[i][0]); 
                 char action[MAX];
                 sprintf(action,"Reduce %s",productions[i]);
                 printStep(input+iptr,action);
@@ -131,3 +131,4 @@ void main(){
     scanf("%s",input);
     parse(input);
 }
+
