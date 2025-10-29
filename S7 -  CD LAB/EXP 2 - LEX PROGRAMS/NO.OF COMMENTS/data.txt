@@ -1,0 +1,6 @@
+/*hi
+hello */
+my name is mahir
+// this is a sinle line comment//
+good morning
+//good night//
