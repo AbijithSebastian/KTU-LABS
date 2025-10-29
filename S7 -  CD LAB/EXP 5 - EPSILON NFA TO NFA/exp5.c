@@ -27,15 +27,15 @@ void epsilonClosure(char s[],char closure[][3],int *size){
         strcpy(closure[(*size)++],s);
     }
     for(int i=0;i<tcnt;i++){
-        if(strcmp(t[i].from,s)==0 && t[i].sym=='e'){ //check
+        if(strcmp(t[i].from,s)==0 && t[i].sym=='e'){ 
             epsilonClosure(t[i].to,closure,size);
         }
     }
 }
 
-void getClosureMoves(char closure[][3],int size,char sym,char result[][3],int *rsize){//vimp check all
-    for(int i=0;i<size;i++){   // check i<size
-        for(int j=0;j<tcnt;j++){  // check j<tcnt
+void getClosureMoves(char closure[][3],int size,char sym,char result[][3],int *rsize){
+    for(int i=0;i<size;i++){  
+        for(int j=0;j<tcnt;j++){  
             if(strcmp(t[j].from,closure[i])==0 && t[j].sym==sym){
                 char temp[MAX][3];
                 int tsize=0;
@@ -54,18 +54,18 @@ void convert(){ //imp
     char symbols[MAX]="";
     int symcnt=0;
     for(int i=0;i<tcnt;i++){
-        if(t[i].sym!='e' && strchr(symbols,t[i].sym)==NULL){  //check
+        if(t[i].sym!='e' && strchr(symbols,t[i].sym)==NULL){  
             symbols[symcnt++]=t[i].sym;
             symbols[symcnt]='\0';
         }
     }
     printf("\nNFA transitions:\n");
-    for(int i=0;i<scnt;i++){   //check i<scnt
+    for(int i=0;i<scnt;i++){   
         char closure[MAX][3];
         int size=0;
         epsilonClosure(states[i],closure,&size);
         
-        for(int j=0;j<symcnt;j++){  //check j<symcnt
+        for(int j=0;j<symcnt;j++){  
             char result[MAX][3];
             int rsize=0;
             getClosureMoves(closure,size,symbols[j],result,&rsize);
@@ -104,5 +104,6 @@ void main(){
         printf("}\n");
     }
     
-    convert(); //e-NFA to NFA
+    convert(); 
+
 }
